@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-rocket"></i>
+            DevOps App
+        </div>
+        <div class="nav-controls">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1 class="fade-in">Welcome to My DevOps Application</h1>
+            <p class="subtitle">Deployed with Git, GitHub Pages, and AWS EC2</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="showDeploymentInfo()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    View Deployment
+                </button>
+                <button class="btn btn-secondary" onclick="showStats()">
+                    <i class="fas fa-chart-bar"></i>
+                    Statistics
+                </button>
+            </div>
+        </header>
+
+        <div class="features-grid">
+            <div class="feature-card" onclick="animateCard(this)">
+                <i class="fas fa-git-alt"></i>
+                <h3>Version Control</h3>
+                <p>Git-based continuous integration and deployment pipeline</p>
+            </div>
+            <div class="feature-card" onclick="animateCard(this)">
+                <i class="fas fa-server"></i>
+                <h3>Cloud Hosting</h3>
+                <p>Deployed on AWS EC2 with auto-scaling capabilities</p>
+            </div>
+            <div class="feature-card" onclick="animateCard(this)">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security</h3>
+                <p>SSL encryption and security best practices implemented</p>
+            </div>
+            <div class="feature-card" onclick="animateCard(this)">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Performance</h3>
+                <p>Optimized for speed with CDN and caching strategies</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('about')">About</button>
+                <button class="tab-btn" onclick="showTab('tech')">Technology</button>
+                <button class="tab-btn" onclick="showTab('metrics')">Metrics</button>
+            </div>
+            
+            <div class="tab-content active" id="about">
+                <h2>About This Project</h2>
+                <p>This is a comprehensive demonstration of modern DevOps deployment practices, showcasing automated CI/CD pipelines, cloud infrastructure, and monitoring capabilities.</p>
+                <div class="progress-bars">
+                    <div class="progress-item">
+                        <span>Deployment Success Rate</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 98%"></div>
+                        </div>
+                        <span>98%</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>Uptime</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99.9%"></div>
+                        </div>
+                        <span>99.9%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tech">
+                <h2>Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS EC2</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="metrics">
+                <h2>Live Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="visitors">1,247</div>
+                        <div class="metric-label">Visitors Today</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="deployments">142</div>
+                        <div class="metric-label">Deployments</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="response-time">47ms</div>
+                        <div class="metric-label">Avg Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>All systems operational</span>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 DevOps Application. Built with ❤️ for modern deployment practices.</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const icon = document.querySelector('.theme-toggle i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.querySelector('.theme-toggle i').className = 'fas fa-sun';
+        }
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Card animation
+        function animateCard(card) {
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Button actions
+        function showDeploymentInfo() {
+            alert('🚀 Latest deployment: Successfully deployed to production at ' + new Date().toLocaleString());
+        }
+
+        function showStats() {
+            alert('📊 System Stats:\n• CPU Usage: 23%\n• Memory Usage: 45%\n• Disk Usage: 67%\n• Network: 12 MB/s');
+        }
+
+        // Animate metrics
+        function animateMetrics() {
+            const visitors = document.getElementById('visitors');
+            const deployments = document.getElementById('deployments');
+            const responseTime = document.getElementById('response-time');
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                visitors.textContent = Math.floor(Math.random() * 100) + 1200;
+                responseTime.textContent = Math.floor(Math.random() * 20) + 40 + 'ms';
+            }, 5000);
+        }
+
+        // Status indicator animation
+        function animateStatus() {
+            const dot = document.querySelector('.status-dot');
+            setInterval(() => {
+                dot.style.opacity = '0.5';
+                setTimeout(() => {
+                    dot.style.opacity = '1';
+                }, 500);
+            }, 2000);
+        }
+
+        // Initialize animations
+        window.addEventListener('load', () => {
+            animateMetrics();
+            animateStatus();
+            
+            // Add entrance animation to feature cards
+            document.querySelectorAll('.feature-card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
