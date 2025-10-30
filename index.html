@@ -22,115 +22,433 @@
 
     <div class="container">
         <header class="hero">
-            <h1 class="fade-in">Welcome to My DevOps Application</h1>
-            <p class="subtitle">Deployed with Git, GitHub Pages, and AWS EC2</p>
+            <h1 class="fade-in">DevOps Engineer Roadmap 2025</h1>
+            <p class="subtitle">Your Complete Guide to Becoming a DevOps Engineer</p>
+            <p class="hero-description">Learn the essential skills, tools, and practices needed to start your DevOps journey. From beginner to professional - we've got you covered!</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="showDeploymentInfo()">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    View Deployment
+                <button class="btn btn-primary" onclick="scrollToSection('roadmap')">
+                    <i class="fas fa-road"></i>
+                    Start Learning Path
                 </button>
-                <button class="btn btn-secondary" onclick="showStats()">
-                    <i class="fas fa-chart-bar"></i>
-                    Statistics
+                <button class="btn btn-secondary" onclick="scrollToSection('skills')">
+                    <i class="fas fa-tools"></i>
+                    Essential Skills
                 </button>
             </div>
         </header>
 
-        <div class="features-grid">
-            <div class="feature-card" onclick="animateCard(this)">
-                <i class="fas fa-git-alt"></i>
-                <h3>Version Control</h3>
-                <p>Git-based continuous integration and deployment pipeline</p>
+        <section id="intro" class="intro-section">
+            <h2>What is DevOps?</h2>
+            <p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the development lifecycle and deliver high-quality software continuously.</p>
+            <div class="devops-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Faster Delivery</h4>
+                    <p>Deploy features and fixes quickly</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h4>Continuous Integration</h4>
+                    <p>Automated testing and deployment</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Better Collaboration</h4>
+                    <p>Dev and Ops teams work together</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Improved Quality</h4>
+                    <p>Continuous monitoring and feedback</p>
+                </div>
             </div>
-            <div class="feature-card" onclick="animateCard(this)">
+        </section>
+
+        <section id="roadmap" class="roadmap-section">
+            <h2>DevOps Learning Roadmap</h2>
+            <div class="roadmap-timeline">
+                <div class="timeline-item" data-level="beginner">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Programming Fundamentals</h3>
+                        <p><strong>Duration:</strong> 2-3 months</p>
+                        <ul>
+                            <li>Learn a programming language (Python, Go, or JavaScript)</li>
+                            <li>Understand basic scripting and automation</li>
+                            <li>Practice with command line interfaces</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-level="beginner">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Operating Systems & Networking</h3>
+                        <p><strong>Duration:</strong> 1-2 months</p>
+                        <ul>
+                            <li>Linux fundamentals and command line</li>
+                            <li>Networking basics (TCP/IP, DNS, HTTP/HTTPS)</li>
+                            <li>System administration concepts</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">Networking</span>
+                            <span class="tag">SSH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-level="intermediate">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Version Control & CI/CD</h3>
+                        <p><strong>Duration:</strong> 1-2 months</p>
+                        <ul>
+                            <li>Master Git workflows and collaboration</li>
+                            <li>Learn GitHub/GitLab for code management</li>
+                            <li>Understand CI/CD pipelines and automation</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-level="intermediate">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Containerization</h3>
+                        <p><strong>Duration:</strong> 2-3 months</p>
+                        <ul>
+                            <li>Docker fundamentals and containerization</li>
+                            <li>Container orchestration with Kubernetes</li>
+                            <li>Container registries and image management</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Helm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-level="advanced">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Cloud Platforms</h3>
+                        <p><strong>Duration:</strong> 3-4 months</p>
+                        <ul>
+                            <li>Choose a cloud provider (AWS, Azure, or GCP)</li>
+                            <li>Learn cloud services and architecture</li>
+                            <li>Infrastructure as Code (IaC) concepts</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Terraform</span>
+                            <span class="tag">CloudFormation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-level="advanced">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <h3>Monitoring & Security</h3>
+                        <p><strong>Duration:</strong> 2-3 months</p>
+                        <ul>
+                            <li>Application and infrastructure monitoring</li>
+                            <li>Log management and analysis</li>
+                            <li>Security best practices and DevSecOps</li>
+                        </ul>
+                        <div class="skill-tags">
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Grafana</span>
+                            <span class="tag">ELK Stack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="features-grid" id="skills">
+            <h2 class="section-title">Essential DevOps Skills</h2>
+            <div class="feature-card" onclick="toggleSkillDetails(this)">
+                <i class="fas fa-code"></i>
+                <h3>Programming & Scripting</h3>
+                <p>Automation and tool development skills</p>
+                <div class="skill-details">
+                    <ul>
+                        <li>Python for automation scripts</li>
+                        <li>Bash scripting for system tasks</li>
+                        <li>YAML for configuration files</li>
+                        <li>JSON for API interactions</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card" onclick="toggleSkillDetails(this)">
                 <i class="fas fa-server"></i>
-                <h3>Cloud Hosting</h3>
-                <p>Deployed on AWS EC2 with auto-scaling capabilities</p>
+                <h3>Infrastructure Management</h3>
+                <p>Managing and scaling infrastructure</p>
+                <div class="skill-details">
+                    <ul>
+                        <li>Infrastructure as Code (IaC)</li>
+                        <li>Configuration management</li>
+                        <li>Auto-scaling and load balancing</li>
+                        <li>Disaster recovery planning</li>
+                    </ul>
+                </div>
             </div>
-            <div class="feature-card" onclick="animateCard(this)">
+            <div class="feature-card" onclick="toggleSkillDetails(this)">
+                <i class="fas fa-cogs"></i>
+                <h3>Automation & CI/CD</h3>
+                <p>Streamlining development workflows</p>
+                <div class="skill-details">
+                    <ul>
+                        <li>Pipeline design and implementation</li>
+                        <li>Automated testing integration</li>
+                        <li>Deployment strategies</li>
+                        <li>Release management</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card" onclick="toggleSkillDetails(this)">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Security</h3>
-                <p>SSL encryption and security best practices implemented</p>
-            </div>
-            <div class="feature-card" onclick="animateCard(this)">
-                <i class="fas fa-tachometer-alt"></i>
-                <h3>Performance</h3>
-                <p>Optimized for speed with CDN and caching strategies</p>
+                <h3>Security & Compliance</h3>
+                <p>Ensuring secure and compliant systems</p>
+                <div class="skill-details">
+                    <ul>
+                        <li>Security scanning and vulnerability assessment</li>
+                        <li>Access control and identity management</li>
+                        <li>Compliance frameworks (SOC2, GDPR)</li>
+                        <li>Security incident response</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="info-section">
             <div class="tabs">
-                <button class="tab-btn active" onclick="showTab('about')">About</button>
-                <button class="tab-btn" onclick="showTab('tech')">Technology</button>
-                <button class="tab-btn" onclick="showTab('metrics')">Metrics</button>
+                <button class="tab-btn active" onclick="showTab('tools')">Essential Tools</button>
+                <button class="tab-btn" onclick="showTab('career')">Career Path</button>
+                <button class="tab-btn" onclick="showTab('resources')">Learning Resources</button>
             </div>
             
-            <div class="tab-content active" id="about">
-                <h2>About This Project</h2>
-                <p>This is a comprehensive demonstration of modern DevOps deployment practices, showcasing automated CI/CD pipelines, cloud infrastructure, and monitoring capabilities.</p>
-                <div class="progress-bars">
-                    <div class="progress-item">
-                        <span>Deployment Success Rate</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 98%"></div>
+            <div class="tab-content active" id="tools">
+                <h2>DevOps Tools Ecosystem</h2>
+                <p>Master these tools to excel in your DevOps career. Start with the basics and gradually move to advanced tools.</p>
+                
+                <div class="tools-category">
+                    <h3><i class="fas fa-code-branch"></i> Version Control</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                            <div class="difficulty beginner">Beginner</div>
                         </div>
-                        <span>98%</span>
+                        <div class="tool-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                            <div class="difficulty beginner">Beginner</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-gitlab"></i>
+                            <span>GitLab</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
                     </div>
-                    <div class="progress-item">
-                        <span>Uptime</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 99.9%"></div>
+                </div>
+
+                <div class="tools-category">
+                    <h3><i class="fas fa-cogs"></i> CI/CD Platforms</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fas fa-play-circle"></i>
+                            <span>GitHub Actions</span>
+                            <div class="difficulty beginner">Beginner</div>
                         </div>
-                        <span>99.9%</span>
+                        <div class="tool-item">
+                            <i class="fas fa-hammer"></i>
+                            <span>Jenkins</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>GitLab CI</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-category">
+                    <h3><i class="fas fa-cube"></i> Containerization</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                            <div class="difficulty beginner">Beginner</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-dharmachakra"></i>
+                            <span>Kubernetes</span>
+                            <div class="difficulty advanced">Advanced</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-ship"></i>
+                            <span>Helm</span>
+                            <div class="difficulty advanced">Advanced</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Azure</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fab fa-google"></i>
+                            <span>Google Cloud</span>
+                            <div class="difficulty intermediate">Intermediate</div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="tab-content" id="tech">
-                <h2>Technology Stack</h2>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
+            <div class="tab-content" id="career">
+                <h2>DevOps Career Progression</h2>
+                <p>Understand the typical career path and salary expectations in DevOps field.</p>
+                
+                <div class="career-path">
+                    <div class="career-level">
+                        <h3>Junior DevOps Engineer</h3>
+                        <div class="salary-range">$50k - $75k</div>
+                        <ul>
+                            <li>Basic automation scripting</li>
+                            <li>CI/CD pipeline maintenance</li>
+                            <li>System monitoring and alerting</li>
+                            <li>Infrastructure documentation</li>
+                        </ul>
+                        <div class="experience">0-2 years experience</div>
                     </div>
-                    <div class="tech-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
+
+                    <div class="career-level">
+                        <h3>DevOps Engineer</h3>
+                        <div class="salary-range">$75k - $110k</div>
+                        <ul>
+                            <li>Design and implement CI/CD pipelines</li>
+                            <li>Infrastructure as Code (IaC)</li>
+                            <li>Container orchestration</li>
+                            <li>Security compliance automation</li>
+                        </ul>
+                        <div class="experience">2-5 years experience</div>
                     </div>
-                    <div class="tech-item">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
+
+                    <div class="career-level">
+                        <h3>Senior DevOps Engineer</h3>
+                        <div class="salary-range">$110k - $150k</div>
+                        <ul>
+                            <li>Architecture design and decision making</li>
+                            <li>Cross-team collaboration and mentoring</li>
+                            <li>Performance optimization and scaling</li>
+                            <li>Disaster recovery planning</li>
+                        </ul>
+                        <div class="experience">5-8 years experience</div>
                     </div>
-                    <div class="tech-item">
-                        <i class="fab fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="tech-item">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </div>
-                    <div class="tech-item">
-                        <i class="fab fa-aws"></i>
-                        <span>AWS EC2</span>
+
+                    <div class="career-level">
+                        <h3>DevOps Architect/Lead</h3>
+                        <div class="salary-range">$150k - $200k+</div>
+                        <ul>
+                            <li>Strategic technology planning</li>
+                            <li>Team leadership and management</li>
+                            <li>Enterprise-level architecture</li>
+                            <li>Stakeholder communication</li>
+                        </ul>
+                        <div class="experience">8+ years experience</div>
                     </div>
                 </div>
             </div>
             
-            <div class="tab-content" id="metrics">
-                <h2>Live Metrics</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value" id="visitors">1,247</div>
-                        <div class="metric-label">Visitors Today</div>
+            <div class="tab-content" id="resources">
+                <h2>Learning Resources</h2>
+                <p>Curated resources to help you learn DevOps effectively.</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3><i class="fas fa-book"></i> Online Courses</h3>
+                        <ul>
+                            <li><strong>AWS DevOps Engineer Professional</strong> - AWS Training</li>
+                            <li><strong>Docker Mastery</strong> - Udemy</li>
+                            <li><strong>Kubernetes for Beginners</strong> - Coursera</li>
+                            <li><strong>DevOps Foundations</strong> - LinkedIn Learning</li>
+                        </ul>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value" id="deployments">142</div>
-                        <div class="metric-label">Deployments</div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                        <ul>
+                            <li><strong>AWS Certified DevOps Engineer</strong> - Professional level</li>
+                            <li><strong>Azure DevOps Engineer Expert</strong> - Microsoft</li>
+                            <li><strong>Google Cloud Professional DevOps Engineer</strong></li>
+                            <li><strong>Certified Kubernetes Administrator (CKA)</strong></li>
+                        </ul>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value" id="response-time">47ms</div>
-                        <div class="metric-label">Avg Response Time</div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-hands-helping"></i> Practice Platforms</h3>
+                        <ul>
+                            <li><strong>KillerCoda</strong> - Interactive scenarios</li>
+                            <li><strong>Katacoda</strong> - Hands-on learning</li>
+                            <li><strong>A Cloud Guru</strong> - Cloud sandboxes</li>
+                            <li><strong>GitHub</strong> - Open source projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3><i class="fas fa-users"></i> Communities</h3>
+                        <ul>
+                            <li><strong>DevOps Subreddit</strong> - r/devops</li>
+                            <li><strong>DevOps.com Community</strong> - Forums and blogs</li>
+                            <li><strong>CNCF Slack</strong> - Cloud Native discussions</li>
+                            <li><strong>Stack Overflow</strong> - Q&A platform</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="study-tips">
+                    <h3><i class="fas fa-lightbulb"></i> Study Tips for Beginners</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <h4>Start with Fundamentals</h4>
+                            <p>Master Linux, networking, and basic programming before moving to advanced tools.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Practice Hands-On</h4>
+                            <p>Set up your own lab environment and practice with real projects.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Join Communities</h4>
+                            <p>Engage with DevOps communities for networking and knowledge sharing.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Build Projects</h4>
+                            <p>Create a portfolio of projects showcasing your DevOps skills.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,15 +456,40 @@
 
         <div class="status-indicator">
             <div class="status-dot"></div>
-            <span>All systems operational</span>
+            <span>Ready to start your DevOps journey!</span>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Begin Your DevOps Journey?</h2>
+            <p>Start with the fundamentals and work your way up. Remember, becoming a DevOps engineer is a journey, not a destination!</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="window.open('https://github.com', '_blank')">
+                    <i class="fab fa-github"></i>
+                    Start with Git & GitHub
+                </button>
+                <button class="btn btn-secondary" onclick="window.open('https://www.docker.com/get-started', '_blank')">
+                    <i class="fab fa-docker"></i>
+                    Learn Docker
+                </button>
+            </div>
         </div>
     </div>
 
     <footer style="margin-top: 30px; padding: 20px; background: #333; color: white;">
-        <p>© 2025 DevOps Training Lab</p>
+        <p>© 2025 DevOps Learning Roadmap | Your Gateway to DevOps Excellence</p>
+        <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9rem;">
+            Built with ❤️ for aspiring DevOps engineers worldwide
+        </p>
     </footer>
 
     <script>
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
         // Theme toggle functionality
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
@@ -185,58 +528,101 @@
             event.target.classList.add('active');
         }
 
-        // Card animation
-        function animateCard(card) {
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                card.style.transform = 'scale(1)';
-            }, 150);
-        }
-
-        // Button actions
-        function showDeploymentInfo() {
-            alert('🚀 Latest deployment: Successfully deployed to production at ' + new Date().toLocaleString());
-        }
-
-        function showStats() {
-            alert('📊 System Stats:\n• CPU Usage: 23%\n• Memory Usage: 45%\n• Disk Usage: 67%\n• Network: 12 MB/s');
-        }
-
-        // Animate metrics
-        function animateMetrics() {
-            const visitors = document.getElementById('visitors');
-            const deployments = document.getElementById('deployments');
-            const responseTime = document.getElementById('response-time');
+        // Toggle skill details
+        function toggleSkillDetails(card) {
+            const details = card.querySelector('.skill-details');
+            const isExpanded = details.style.display === 'block';
             
-            // Simulate real-time updates
-            setInterval(() => {
-                visitors.textContent = Math.floor(Math.random() * 100) + 1200;
-                responseTime.textContent = Math.floor(Math.random() * 20) + 40 + 'ms';
-            }, 5000);
+            // Close all other details
+            document.querySelectorAll('.skill-details').forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // Toggle current detail
+            if (!isExpanded) {
+                details.style.display = 'block';
+                card.classList.add('expanded');
+            } else {
+                details.style.display = 'none';
+                card.classList.remove('expanded');
+            }
         }
 
-        // Status indicator animation
-        function animateStatus() {
-            const dot = document.querySelector('.status-dot');
-            setInterval(() => {
-                dot.style.opacity = '0.5';
-                setTimeout(() => {
-                    dot.style.opacity = '1';
-                }, 500);
-            }, 2000);
+        // Roadmap timeline interactions
+        function highlightTimelineItem(level) {
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                if (item.dataset.level === level) {
+                    item.classList.add('highlighted');
+                } else {
+                    item.classList.remove('highlighted');
+                }
+            });
         }
 
-        // Initialize animations
+        // Progress tracking
+        function markStepComplete(stepNumber) {
+            const step = document.querySelector(`[data-step="${stepNumber}"]`);
+            if (step) {
+                step.classList.add('completed');
+                localStorage.setItem(`step-${stepNumber}`, 'completed');
+            }
+        }
+
+        // Load completed steps
+        function loadProgress() {
+            for (let i = 1; i <= 6; i++) {
+                if (localStorage.getItem(`step-${i}`) === 'completed') {
+                    markStepComplete(i);
+                }
+            }
+        }
+
+        // Initialize page
         window.addEventListener('load', () => {
-            animateMetrics();
-            animateStatus();
+            loadProgress();
             
-            // Add entrance animation to feature cards
-            document.querySelectorAll('.feature-card').forEach((card, index) => {
+            // Add entrance animation to roadmap items
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 300);
+            });
+
+            // Add entrance animation to benefit cards
+            document.querySelectorAll('.benefit-card').forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, index * 200);
+            });
+
+            // Animate progress indicators
+            setTimeout(() => {
+                document.querySelectorAll('.timeline-marker').forEach(marker => {
+                    marker.style.transform = 'scale(1)';
+                });
+            }, 1000);
+        });
+
+        // Add intersection observer for timeline animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.timeline-item, .benefit-card, .career-level').forEach(el => {
+                observer.observe(el);
             });
         });
     </script>
