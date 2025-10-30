@@ -1,0 +1,124 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  DEPLOY_PATH: /var/www/html
+
+jobs:
+  # Test job to validate the code before deployment
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Validate HTML
+      run: |
+        # Install HTML validator
+        sudo apt-get update
+        sudo apt-get install -y tidy
+        
+        # Validate HTML files
+        echo "Validating HTML files..."
+        for file in *.html; do
+          if [ -f "$file" ]; then
+            echo "Checking $file"
+            tidy -q -e "$file" || echo "Warning: $file has validation issues"
+          fi
+        done
+        
+    - name: Check CSS syntax
+      run: |
+        # Basic CSS syntax check
+        echo "Checking CSS files..."
+        for file in *.css; do
+          if [ -f "$file" ]; then
+            echo "Checking $file"
+            # Simple bracket matching check
+            if [ $(grep -o '{' "$file" | wc -l) -ne $(grep -o '}' "$file" | wc -l) ]; then
+              echo "Error: Mismatched brackets in $file"
+              exit 1
+            fi
+          fi
+        done
+
+  # Deploy job - only runs on main branch pushes and after tests pass
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup deployment info
+      run: |
+        echo "Deploying to EC2..."
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Actor: ${{ github.actor }}"
+        
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: 22
+        timeout: 60s
+        script: |
+          echo "Starting deployment..."
+          
+          # Navigate to web directory
+          cd ${{ env.DEPLOY_PATH }}
+          
+          # Create backup of current deployment
+          echo "Creating backup..."
+          sudo cp -r . ../backup-$(date +%Y%m%d-%H%M%S) || echo "Backup failed, continuing..."
+          
+          # Pull latest changes
+          echo "Pulling latest changes..."
+          sudo git fetch origin
+          sudo git reset --hard origin/main
+          
+          # Set proper permissions
+          echo "Setting permissions..."
+          sudo chown -R www-data:www-data .
+          sudo chmod -R 755 .
+          
+          # Test nginx configuration
+          echo "Testing nginx configuration..."
+          sudo nginx -t
+          
+          # Reload nginx (graceful restart)
+          echo "Reloading nginx..."
+          sudo systemctl reload nginx
+          
+          # Verify deployment
+          echo "Verifying deployment..."
+          if curl -f http://localhost/ > /dev/null 2>&1; then
+            echo "✅ Deployment successful - website is responding"
+          else
+            echo "❌ Deployment verification failed"
+            exit 1
+          fi
+          
+          echo "Deployment completed successfully!"
+          
+    - name: Notify deployment status
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "🚀 Deployment to EC2 completed successfully!"
+          echo "Website should be live at your EC2 instance"
+        else
+          echo "❌ Deployment failed"
+          echo "Please check the logs and server status"
+        fi
